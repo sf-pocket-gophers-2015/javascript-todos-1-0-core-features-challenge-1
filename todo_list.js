@@ -1,12 +1,49 @@
 var createTodoList = function() {
-  var todoList = {};
+  var todoList = {
+    tasks: [],
 
-  // your code here
+    //release 1
+    // add: function(item){ 
+    //   this.tasks.push(item) 
+    // },
+
+    //release 2
+    add: function(item){ 
+      this.tasks.push( { description: item, completed: false });
+    },
+
+    list: function(){ 
+      for(var i = 0; i < this.tasks.length; i++){
+        console.log(this.tasks[i])
+      }
+    },
+
+    //release 1
+    indexOf: function(item){
+      return this.tasks.indexOf(item)
+    },
+    //release 2
+    // indexOf: function (){ 
+
+
+    remove: function(index){
+      return this.tasks.splice(index, 1)
+    },
+
+    get: function(index){
+      console.log( this.tasks[index] )
+    },
+
+    complete: function(index){
+      return this.tasks[index].completed = true;
+    },
+
+  };
 
   return todoList;
 };
 
-
+// #RELEASE 2
 
 
 
