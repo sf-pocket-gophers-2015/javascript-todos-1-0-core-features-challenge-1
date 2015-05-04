@@ -1,8 +1,13 @@
 var createTodoList = function() {
   var todoList = {
     tasks: [],
+
     add: function(item) {
-      this.tasks.push(item);
+      var item_obj = {
+        description: item,
+        completed: false,
+      };
+      this.tasks.push(item_obj);
     },
     list: function(item) {
       for (var i = 0; i < this.tasks.length; i++) {
@@ -11,6 +16,12 @@ var createTodoList = function() {
     },
     indexOf: function(item) {
       this.tasks[item];
+    },
+    get: function(item_index){
+      this.tasks[item_index];
+    },
+    complete: function(item_index){
+      this.tasks[item_index].completed = true;
     },
     remove: function(item_index) {
       this.tasks.splice(item_index,1);
@@ -27,7 +38,7 @@ return todoList;
 
 
 // Release 1
-
+/*
 var groceryList = createTodoList();
 groceryList.add('bread');
 groceryList.add('cheese');
@@ -36,6 +47,7 @@ groceryList.list(); //-> ['bread', 'cheese', 'milk']
 groceryList.indexOf('cheese'); //-> 1
 groceryList.remove(1);
 groceryList.list(); //-> ['bread', 'milk']
+*/
 
 // release 2
 var groceryList = createTodoList();
