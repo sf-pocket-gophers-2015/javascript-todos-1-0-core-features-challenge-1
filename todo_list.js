@@ -32,6 +32,12 @@ var createTodoList = function() {
   todoList.remove = function(index) {
     this.tasks.splice(index, 1);
   };
+  todoList.get = function(index) {
+    return this.tasks[index];
+  };
+  todoList.complete = function(index) {
+    this.tasks[index].completed = true;
+  };
   return todoList;
 };
 
