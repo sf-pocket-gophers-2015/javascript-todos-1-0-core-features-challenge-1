@@ -1,46 +1,45 @@
 var createTodoList = function() {
   var todoList = {};
 
-todoList.groceries = [ ];
+  todoList.groceries = [ ];
 
-
-todoList.add = function(item){
-  this.groceries.push(
-    {
-    description: item,
-    completed: false,
-  }
-  );
-};
-
-todoList.list = function(){
-  return this.groceries
-};
-
-todoList.indexOf = function(item){
-  var targetIndex = -1
-  for (var i = 0; i >= this.groceries.length; i++){
-    if (this.groceries[i].description === item) {
-      targetIndex = i;
-      return targetIndex;
-    };
+  todoList.add = function(item){
+    this.groceries.push(
+      {
+      description: item,
+      completed: false,
+      }
+    );
   };
-};
 
-todoList.remove = function(index){
-  console.log(this.groceries[1].description);
-  this.groceries.splice(index, 1);
-  return this.groceries;
+  todoList.list = function(){
+    return this.groceries
+  };
 
-};
+  todoList.indexOf = function(item){
+    var targetIndex = -1
+    for (var i = 0; i < this.groceries.length; i++){
+      if (this.groceries[i].description === item) {
+        targetIndex = i;
+      };
+    };
+      return targetIndex;
+  };
 
-todoList.get = function(){
+  todoList.remove = function(index){
+    this.groceries.splice(index, 1);
+    return this.groceries;
 
-};
+  };
 
-todoList.complete = function(){
+  todoList.get = function(index){
+    return this.groceries[index];
 
-};
+  };
+
+  todoList.complete = function(index){
+    this.groceries[index].completed = true;
+  };
 
   return todoList;
 
@@ -76,9 +75,10 @@ groceryList.list(); //-> [
 // {description: 'cheese', completed: false},
 // {description: 'milk', completed: false},
 // ];
+
 groceryList.indexOf('cheese'); //-> 1
-groceryList.get(1); //-> {description: 'cheese', completed: false}
-groceryList.complete(1);
+console.log(groceryList.get(1)) //-> {description: "cheese", completed: false});
+console.log(groceryList.complete(1));
 groceryList.list(); //-> [
 // {description: 'bread', completed: false},
 // {description: 'cheese', completed: true},
