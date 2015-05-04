@@ -1,7 +1,38 @@
 var createTodoList = function() {
   var todoList = {};
+  todoList.array = [];
 
-  // your code here
+  todoList.add = function(string) {
+    var product = {
+      description: string,
+      completed: false,
+    };
+    this.array.push(product);
+  };
+
+  todoList.list = function() {
+    return todoList.array;
+  };
+
+  todoList.indexOf = function(element) {
+    // return this.array.indexOf(todoList.array.description == element);
+    for (var i = 0; i < this.array.length; i++) {
+      if (this.array[i].description === element)
+        return i;
+    };
+  };
+
+  todoList.remove = function(index) {
+    this.array.splice(index, 1);
+  };
+
+  todoList.get = function(index) {
+    return this.array[index];
+  };
+
+  todoList.complete = function(index) {
+    this.array[index].completed = true;
+  };
 
   return todoList;
 };
