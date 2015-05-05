@@ -15,7 +15,7 @@ var createTodoList = function() {
       };
     },
     indexOf: function(item) {
-      this.tasks[item];
+      this.tasks.indexOf(item);
     },
     get: function(item_index){
       this.tasks[item_index];
